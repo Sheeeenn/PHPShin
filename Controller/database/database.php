@@ -41,11 +41,20 @@ class Database {
 
     public function createDatabase(){
 
-        // Create database
-        $sql = "CREATE DATABASE '$this->name'";
-        $this->conn->query($sql);
+        //Call Database to check if existing
+        //If not existing then create
+        $sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$this->name'";
+        $result = $this->conn->query($sql);
+        if($result && $result->num_rows > 0) {
+
+        } else {
+            $sql = "CREATE DATABASE $this->name";
+            $this->conn->query($sql);
+            $_SESSION['DB_Name'] = $this->name;
+        }
 
     }
+
 
 }
 
