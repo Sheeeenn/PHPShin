@@ -10,6 +10,14 @@ class createTable {
         $db->stop();
     }
 
+    public static function string($Cname, $Lnumber = 255){
+        $TName = self::getName();
+        $db = new Database();
+        $db->start();
+        $db->createCol($TName, $Cname, $Lnumber);
+        $db->stop();
+    }
+
     public static function getName(){
 
         $prev = debug_backtrace(); // Go to previous path
