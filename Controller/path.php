@@ -17,7 +17,7 @@ class path {
 
         }
 
-        require 'View/error.php';
+        require 'PHPShin/contribution/error.php';
 
     }
 }

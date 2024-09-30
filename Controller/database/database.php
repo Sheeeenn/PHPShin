@@ -22,7 +22,7 @@ class Database {
 
     public function start(){
 
-        $this->conn = new mysqli($this->host, $this->username, $this->password, '', $this->port) ;
+        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->name, $this->port) ;
 
         // Check connection
         if ($this->conn->connect_error) {
@@ -44,14 +44,38 @@ class Database {
         //Call Database to check if existing
         //If not existing then create
         $sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$this->name'";
+        $conn2 = new mysqli($this->host, $this->username, $this->password, '', $this->port) ;
+        $result = $conn2->query($sql);
+        if($result && $result->num_rows > 0) {
+
+            $conn2->close();
+
+        } else {
+
+            $sql = "CREATE DATABASE $this->name";
+            $conn2->query($sql);
+            $conn2->close();
+            
+        }
+
+    }
+
+    public function createTable($Tname){
+        //Call Tab to check if existing
+        //If not existing then create
+        $sql = "SHOW TABLES LIKE '$Tname';";
         $result = $this->conn->query($sql);
         if($result && $result->num_rows > 0) {
 
         } else {
-            $sql = "CREATE DATABASE $this->name";
+            $sql = "CREATE TABLE $Tname (id INT AUTO_INCREMENT PRIMARY KEY);";
             $this->conn->query($sql);
-            $_SESSION['DB_Name'] = $this->name;
         }
+
+    }
+
+    public function createCol(){
+
 
     }
 
