@@ -74,7 +74,7 @@ class Database {
 
     }
 
-    public function createCol($Tname, $Cname, $many){
+    public function createCol($Ttype, $Tname, $Cname, $extras){
         //Call Column to check if existing
         //If not existing then create
         $sql = "SELECT column_name FROM information_schema.columns WHERE table_name = '$Tname' AND column_name = '$Cname';";
@@ -82,8 +82,15 @@ class Database {
         if($result && $result->num_rows > 0) {
 
         } else {
-            $sql = "ALTER TABLE $Tname ADD $Cname VARCHAR($many);";
-            $this->conn->query($sql);
+
+            if($Ttype == "v"){
+                
+                $sql = "ALTER TABLE $Tname ADD $Cname VARCHAR". $extras .";";
+                $this->conn->query($sql);
+
+            } elseif($Ttype == "i"){
+
+            }
         }
 
     }

@@ -14,8 +14,11 @@ function json () {
 }
 
 function Account () {
+
     createTable::id(); //This code is required for every table that you'll create.
-    createTable::string("name", 5);
+    createTable::string("name", 255);
+    createTable::string("name8", 119, unique: true);
+    //createTable::int("age");
 }
 
 ?>
