@@ -90,6 +90,9 @@ class Database {
 
             } elseif($Ttype == "i"){
 
+                $sql = "ALTER TABLE $Tname ADD $Cname INT". $extras .";";
+                $this->conn->query($sql);
+
             }
         }
 

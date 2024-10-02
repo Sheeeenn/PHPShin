@@ -17,7 +17,7 @@ function Account () {
 
     createTable::id(); //This code is required for every table that you'll create.
     createTable::string("name", 255);
-    createTable::string("name8", 119, unique: true);
+    createTable::integer("age", not_null: true, default: 20);
     //createTable::int("age");
 }
 
