@@ -1,0 +1,23 @@
+{
+    "name": "vendor/shin",
+    "description": "A small PHP Library for students.",
+    "type": "framework",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Shin\\": "nsrc/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Justin Guiriba",
+            "email": "justinguiriba20@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/console": "^6.0"
+    },
+    "scripts": {
+        "create-table": "php Controller/migrations/create.php"
+    }
+}

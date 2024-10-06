@@ -80,15 +80,6 @@ class createTable {
         
     }
 
-    /*public static function integer($Cname){
-        $TName = self::getName();
-        $Ttype = "i";
-        $db = new Database();
-        $db->start();
-        $db->createCol($Ttype, $TName, $Cname, $Lnumber);
-        $db->stop();
-    }*/
-
     /*public static function default($def){
         
     }*/
