@@ -18,6 +18,7 @@
         "symfony/console": "^6.0"
     },
     "scripts": {
-        "create-table": "php Controller/migrations/create.php"
+        "create-table": "php Controller/migrations/create.php",
+        "migrate": "php Controller/migrations/migrate_action.php"
     }
 }

@@ -28,9 +28,9 @@ require_once("migrate_process.php");
 // Check if $List is an array
 if (is_array($List)) {
     $New = $List;
-    print_r($New);
-    $test = implode(", ", $New);
-    $fileContent2 = "<?php Test";
+    $New [] = $tableName;
+    $test = implode("\", \"", $New);
+    $fileContent2 = "<?php \n\$List = [\"$test\"];";
     file_put_contents("Controller/migrations/migrate_process.php", $fileContent2);
 
 } else {

@@ -1,2 +1,2 @@
-<?php
-$List = ["A", "b"];
+<?php 
+$List = [];
